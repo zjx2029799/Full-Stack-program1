@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Please input your loooooooooooooooooong URL</h4>
+        <form ng-submit="submit()">
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="longUrl" />
+            </div>
+            <input type="submit" value="Get Your TinyURL" class="btn btn-primary" />
+        </form>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-md-offset-1">
+        <h4>Login successfully : <a ng-href="#/" style="color:rebeccapurple">{{username}}</a></h4>
+    </div>
+    <div class="col-md-12 col-md-offset-1">
+        <h4>Your URL pairs</h4>
+        <table class="table table-bordered" >
+            <tr>
+                <td>index</td>
+                <td>LongUrl</td>
+                <td>ShortUrl</td>
+                <td>Create Date</td>
+                <!--<td>Expired Date</td>-->
+            </tr>
+            <tr ng-repeat="x in names">
+                <td>{{ $index + 1 }}</td>
+                <td><a ng-href="{{x.longUrl}}" target="_blank">{{x.longUrl}}</a></td>
+                <td><a ng-href="{{x.shortUrl}}" target="_blank">http://localhost/{{x.shortUrl}}</a></td>
+                <td>{{ x.timestamp }}</td>
+                <!--<td>{{x.timestamp}}</td>-->
+            </tr>
+        </table>
+    </div>
+</div>

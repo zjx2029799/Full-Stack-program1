@@ -1,0 +1,40 @@
+# When start docker-compose you'd better to firstly docker-compose down(stop and remove previous docker-compose) to avoid some inevitable faults.
+nginx:
+  build: ./nginx
+  ports:
+    - "80:80"  # [HOST:CONTAINER], forwards the exposed port 80 on the container to port 3000 on the host machine
+  links:
+    - "app1:app1"  # the app1 is the actually the ip address for one server and the second app1 is to map the app in nginx
+    - "app2:app2"
+    - "app3:app3"
+
+app1:
+  build: ./app  # web app service builds from the Dockerfile in the ./app directory
+  volumes:
+    - ./app:/tiny
+  ports:
+    - "3000"   # ports is the localhost server's port
+  links:
+    - "cache:redis"
+
+app2:
+  build: ./app
+  volumes:
+      - ./app:/tiny
+  ports:
+    - "3000"
+  links:
+    - "cache:redis"
+
+app3:
+  build: ./app
+  volumes:
+    - ./app:/tiny
+  ports:
+    - "3000"
+  links:
+    - "cache:redis"
+
+cache:
+  image: redis
+

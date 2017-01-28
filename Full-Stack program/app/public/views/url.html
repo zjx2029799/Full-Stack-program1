@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-5 col-md-offset-2">
+        <div class="row">
+            <h4>Your LongUrl is:</h4>
+            <a ng-href="{{longUrl}}" target="_blank">{{longUrl}}</a>
+        </div>
+        <div class="row">
+            <h3>Your shortUrl is:</h3>
+           <h3><a ng-href="{{shortUrl}}" target="_blank">{{showShortUrl}}</a></h3>
+            <!--!!This sentence, ng-href need to be the shortUrl that are in DB, if you use showShortUrl, it cannot work-->
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading ">Total Clicks</div>
+            <h1 class="panel-body">{{totalClicks}}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">   <!--这里javascript void意思是使点击无效 然后要交给angular来控制-->
+                                                                    <!--getTime(hour)这里只能传变量所以我们把$scope.hour赋值为一个字符串“hour”-->
+                Clicks for the past: <a href="javascript:void(0);" ng-click="getTime(hour)"
+                                        ng-class="{'text-muted': time === 'hour'}">Hour</a>
+                                    <a href="javascript:void(0);" ng-click="getTime(day)"
+                                        ng-class="{'text-muted': time === 'day'}">Day</a>
+                                    <a href="javascript:void(0);" ng-click="getTime(month)"
+                                        ng-class="{'text-muted': time === 'month'}">Month</a>
+                                    <a href="javascript:void(0);" ng-click="getTime(year)"
+                                        ng-class="{'text-muted': time === 'year'}">Year</a>
+            </div>
+            <div class="panel-body">
+                <canvas id="line" class="chart chart-line" chart-data="lineData"
+                        chart-labels="lineLabels"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel default">
+            <div class="panel-heading">
+                Referrers
+            </div>
+            <div class="panel-body"> <!--这里可以用angularjs 的 char 叫 angular chart-->
+              <!--  npm install angular-chart.js &#45;&#45;save and then includes the <script> and then add "chart.js in app.js"-->
+                <canvas id="doughnut" class="chart chart-doughnut" chart-data = "doughnutData"
+                            chart-labels = "doughnutLabels">
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+            <div class="panel panel default">
+                <div class="panel-heading">
+                    Countries
+                </div>
+                <div class="panel-body"> <!--这里可以用angularjs 的 char 叫 angular chart-->
+                    <!--  npm install angular-chart.js &#45;&#45;save and then includes the <script> and then add "chart.js in app.js"-->
+                    <canvas id="pie" class="chart chart-pie" chart-data = "pieData"
+                            chart-labels = "pieLabels">
+                    </canvas>
+                    </div>
+            </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel default">
+            <div class="panel-heading">
+                Platforms
+            </div>
+            <div class="panel-body"> <!--这里可以用angularjs 的 char 叫 angular chart-->
+                <!--  npm install angular-chart.js &#45;&#45;save and then includes the <script> and then add "chart.js in app.js"-->
+                <canvas id="base" class="chart chart-horizontal-bar" chart-data = "baseData"
+                        chart-labels = "baseLabels">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel default">
+            <div class="panel-heading">
+                Browsers
+            </div>
+            <div class="panel-body"> <!--这里可以用angularjs 的 char 叫 angular chart-->
+                <!--  npm install angular-chart.js &#45;&#45;save and then includes the <script> and then add "chart.js in app.js"-->
+                <canvas id="bar" class="chart chart-bar" chart-data = "barData"
+                        chart-labels = "barLabels">
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+</div>

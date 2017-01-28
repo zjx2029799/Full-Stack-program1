@@ -1,0 +1,46 @@
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-offset-4" >
+                <h4>Please register here:</h4>
+                <form ng-submit="submit()" name="signupForm">
+                    <div class="form-group" >
+                        <label>E-mail IS:</label>
+                        <input class="form-control" type="email" name="email" ng-model="email" placeholder="Email" required>
+                        <span style="color:red" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+                            <span ng-show="signupForm.email.$error.required">Email is required.</span>
+                            <span ng-show="signupForm.email.$error.email">Invalid email address.</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label>USERNAME IS:</label>
+                        <input class="form-control" type="text" name="username" ng-model="username" placeholder="Username" required>
+                        <span style="color:red" ng-show="signupForm.username.$dirty">
+                            <span ng-show="signupForm.username.$error.required" >Username is required</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label >PASSWORD IS:</label>
+                        <input class="form-control" type="password" name="pwd" ng-model="password" placeholder="password" required>
+                        <span style="color:red" ng-show="signupForm.pwd.$dirty">
+                            <span ng-show="signupForm.pwd.$error.required">Password is required</span>
+                        </span>
+                    </div>
+
+                    <input class="btn btn-default" type="submit" value="Register now!">
+                </form>
+            </div>
+
+        </div>
+    </div>
+<!--</body>
+</html>-->
+
+
+
+
+
+
+
+
