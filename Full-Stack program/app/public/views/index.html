@@ -47,34 +47,81 @@
 </head>
 <body ng-app="tinyurlApp">     <!-- 让angularjs来控制这个body部分的页面 这个angular叫tinyurlApp-->
     <header>
+
          <div class="row">
-             <div class="col-md-10">
+
+             <div class="col-md-9">
+
                 <div class="container">
+
                     <nav class="navbar navbar-default">
+
                         <div class="navbar-header">
+
                             <a class="navbar-brand" href="#/">TinyUrl</a>
+
                         </div>
+
                     </nav>
+
                 </div>
+
              </div>
+
+
 
              <div class="col-md-2">
+
                  <h5>{{user}}</h5>
+
                  <div class="container">
+
                      <a href="#/login" type="button" class="btn btn-primary">sign in</a>
+
                      <a ng-href="#/signup" type="button" class="btn btn-primary">sign up</a>
+
                  </div>
+
              </div>
 
+
+
          </div>
-        <div class="row">
-            <!--<div class="col-md-10 col-offset-9">
-                <h6><span style="color:indianred">{{email}}</span></h6>
-            </div>-->
-            <div class="col-md-10 col-offset-10">
-                <h6><span style="color:indianred">{{username}}</span></h6>
+
+
+
+        <div class="col-md-11">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading " ><span style="color:red;">Statement for this website:</span></div>
+
+                <h5 class="panel-body" style="color: blue">This system are made by Jiaxing Zheng and just for testing
+
+                   &nbsp;&nbsp; The original codes' link: https://github.com/zjx2029799/Full-Stack-program1.git</h5>
+
             </div>
+
         </div>
+
+
+
+        <div class="row">
+
+            <!--<div class="col-md-10 col-offset-9">
+
+                <h6><span style="color:indianred">{{email}}</span></h6>
+
+            </div>-
+
+            <!--<div class="col-md-10 col-offset-5">
+
+                <h6><span style="color:indianred">This system are made by Jiaxing Zheng and just for testing </span></h6>
+
+            </div>-->
+
+        </div>
+
     </header>
 
     <div class="container">
