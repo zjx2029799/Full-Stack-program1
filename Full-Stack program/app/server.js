@@ -22,6 +22,7 @@ app.use(useragent.express());
     "platform":"Microsoft Windows",
     "source":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.79..."
 ）*/
+app.use("/test", express.static(__dirname + "/test"));
 app.use("/public" , express.static(__dirname + "/public"));
 app.use("/node_modules" , express.static(__dirname + "/node_modules"));
 app.use("/signup",signupRouter);

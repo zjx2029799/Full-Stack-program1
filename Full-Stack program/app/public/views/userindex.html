@@ -5,7 +5,11 @@
             <div class="form-group">
                 <input class="form-control" type="text" ng-model="longUrl" />
             </div>
-            <input type="submit" value="Get Your TinyURL" class="btn btn-primary" />
+        <h4>Please write the remark of this URL pairs</h4>
+            <div class="form-group">
+                <input type="text" ng-model="remark" >
+            </div>    
+	<input type="submit" value="Get Your TinyURL" class="btn btn-primary" />
         </form>
     </div>
 
@@ -23,13 +27,14 @@
                 <td>LongUrl</td>
                 <td>ShortUrl</td>
                 <td>Create Date</td>
-                <!--<td>Expired Date</td>-->
+                <td>Remark</td>
             </tr>
             <tr ng-repeat="x in names">
                 <td>{{ $index + 1 }}</td>
                 <td><a ng-href="{{x.longUrl}}" target="_blank">{{x.longUrl}}</a></td>
-                <td><a ng-href="{{x.shortUrl}}" target="_blank">http://localhost/{{x.shortUrl}}</a></td>
+                <td><a ng-href="{{x.shortUrl}}" target="_blank">http://54.211.162.209/{{x.shortUrl}}</a></td>
                 <td>{{ x.timestamp }}</td>
+		<td>{{x.remark}}</td>
                 <!--<td>{{x.timestamp}}</td>-->
             </tr>
         </table>

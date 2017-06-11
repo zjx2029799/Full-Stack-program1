@@ -24,6 +24,8 @@ var logRequest = function (shortUrl,req) {
     reqInfo.timestamp = new Date();
     var request = new RequestModule(reqInfo);
     request.save();
+	console.log(ip);
+        console.log(geoips);
 };
 
 var getUrlInfo = function (shortUrl, info, callback) {

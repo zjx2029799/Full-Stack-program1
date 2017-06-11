@@ -80,7 +80,7 @@ encode = encode.concat(getCharCode('a','z'));
 encode = encode.concat(getCharCode('0','9'));
 
 /* 传一个callback function的参数*/            /*how to get username(user) by session ?*/
-var getShortUrl = function (longUrl, user, callback) {
+var getShortUrl = function (longUrl, user,remark, callback) {
     if (longUrl.indexOf('http') === -1) {
         longUrl = "http://" + longUrl;
     }
@@ -103,13 +103,14 @@ var getShortUrl = function (longUrl, user, callback) {
                 }else{ /*数据库没有我们就生成一对*/
                     /*Before generate the new pairs of url, handling the expired url pairs*/
                     var time = new Date();
-                    delOutDateUrl(time);
+                   // delOutDateUrl(time);
                     generateShortUrl(function (shortUrl) {  /* 没找到就异步执行生成shorturl的方法*/
                         var url = new UrlModule({
                             shortUrl: shortUrl,
                             longUrl : longUrl,
                             timestamp : new Date(),
-                            username : user
+                            username : user,
+			    remark : remark
                         });
                         url.save();
 
@@ -129,7 +130,8 @@ var generateShortUrl = function (callback) {
         var shortUrl = convertTo62(num);
         UrlModule.count({shortUrl:shortUrl}, function (err, snum) {
             if(snum>0){
-                shortUrl = shortUrl + snum.toString();
+                snum = snum + Math.ceil(Math.random()*8); 
+	        shortUrl = shortUrl + snum.toString() + "~";
                 callback(shortUrl);
             }else {
                 callback(shortUrl);

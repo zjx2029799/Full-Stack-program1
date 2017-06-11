@@ -4,7 +4,7 @@ angular.module("tinyurlApp")
             .success(function (data) { /*注意$scope只是一个普通的变量用来读取html页面里的东西，$http是ngResource里的变量*/
                 $scope.shortUrl = data.shortUrl;
                 $scope.longUrl = data.longUrl;
-                $scope.showShortUrl = "http://localhost:3000/"+data.shortUrl;
+                $scope.showShortUrl = "http://54.211.162.209/"+data.shortUrl;
             })
         $http.get("/api/v1/urls/" + $routeParams.shortUrl + "/totalClicks")
             .success(function (data) {

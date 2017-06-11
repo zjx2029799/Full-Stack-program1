@@ -10,8 +10,8 @@ router.post("/urls", jsonParser, function (req, res) {
     var longUrl = req.body.longUrl;
    /* var user = "zjx";*/
     var user = req.body.username;
-    console.log(user);
-    urlService.getShortUrl(longUrl, user, function (url) {
+    var remark = req.body.remark;
+    urlService.getShortUrl(longUrl, user,remark, function (url) {
         res.json(url);
     });
 });
